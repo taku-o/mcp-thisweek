@@ -7,7 +7,28 @@
 - 今週の日付（月曜日から金曜日）の取得 get_this_week_dates
 - 今日の日付の取得 get_today_date
 
-## 使い方
+### 例
+
+- 今週の月曜日から金曜日までの日付を教えてください。
+- 今日の日付を教えてください。
+
+## セットアップ
+
+### download and setup mcp-thisweek
+```
+# download mcp-thisweek
+git clone git@github.com:taku-o/mcp-thisweek.git
+
+cd mcp-thisweek
+pip install -r requirements.txt
+
+# get fastmcp path
+which fastmcp
+```
+
+### add mcp-thisweek MCP server to mcp.json, or claude_desktop_config.json
+
+- replace "/path/to" with your path on example.
 
 ```
 {
@@ -21,20 +42,6 @@
     }
   }
 }
-```
-
-## 開発環境のセットアップ
-
-```
-brew install uv
-uv venv
-uv pip install fastmcp
-uv add -r requirements.txt 
-```
-
-```
-fastmcp dev server.py
-fastmcp run server.py
 ```
 
 ## ライセンス

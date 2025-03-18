@@ -42,3 +42,9 @@ uv init
 uv add -r requirements.txt 
 
 fastmcp run server.py
+
+
+# TODO
+* 不要なファイルを削除する
+* テスト書く
+* いろいろ依存製を減らす

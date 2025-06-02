@@ -32,14 +32,15 @@ pipとPythonを使用するか、Dockerを使用して`mcp-thisweek`をセット
 3.  **MCPクライアントを設定します:**
     `mcp-thisweek`をMCPクライアントの設定ファイル（例:`mcp.json`または`claude_desktop_config.json`）に追加します。
 
-    `/path/to/`をシステムの`mcp-thisweek`ディレクトリへの実際のパスに置き換えてください。また、`python`がシステムのPATHにない場合は、`/path/to/python`のように置き換える必要があるかもしれません。
+    `command`の`/path/to/fastmcp`を使用する`fastmcp`のパスに、`args`の`/path/to/mcp-thisweek/server.py`を`mcp-thisweek`ディレクトリにある`server.py`スクリプトへの実際のパスに置き換えてください。
 
     ```json
     {
       "mcpServers": {
         "mcp-thisweek": {
-          "command": "python",
+          "command": "/path/to/fastmcp",
           "args": [
+            "run",
             "/path/to/mcp-thisweek/server.py"
           ]
         }

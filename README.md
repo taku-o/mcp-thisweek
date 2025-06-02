@@ -32,15 +32,14 @@ You can set up and run `mcp-thisweek` using pip and Python, or using Docker.
 3.  **Configure your MCP client:**
     Add `mcp-thisweek` to your MCP client's configuration file (e.g., `mcp.json` or `claude_desktop_config.json`).
 
-    Replace `/path/to/fastmcp` with the path to your `fastmcp` executable and `/path/to/mcp-thisweek/server.py` with the path to the `server.py` script in the `mcp-thisweek` directory.
+    Replace `/path/to/mcp-thisweek/server.py` with the actual path to the `server.py` script in the `mcp-thisweek` directory. You may also need to replace `python` with the full path to your Python 3.10+ interpreter if it's not in your system's PATH.
 
     ```json
     {
       "mcpServers": {
         "mcp-thisweek": {
-          "command": "/path/to/fastmcp",
+          "command": "python",
           "args": [
-            "run",
             "/path/to/mcp-thisweek/server.py"
           ]
         }
@@ -58,7 +57,7 @@ You can set up and run `mcp-thisweek` using pip and Python, or using Docker.
 
 2.  **Run the Docker container:**
     ```bash
-    docker run -d --name mcp-thisweek-container mcp-thisweek
+    docker run -d --rm --name mcp-thisweek-container mcp-thisweek
     ```
     This will run the container in detached mode.
 

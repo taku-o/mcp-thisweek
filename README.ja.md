@@ -32,15 +32,14 @@ pipとPythonを使用するか、Dockerを使用して`mcp-thisweek`をセット
 3.  **MCPクライアントを設定します:**
     `mcp-thisweek`をMCPクライアントの設定ファイル（例:`mcp.json`または`claude_desktop_config.json`）に追加します。
 
-    `command`の`/path/to/fastmcp`を使用する`fastmcp`のパスに、`args`の`/path/to/mcp-thisweek/server.py`を`mcp-thisweek`ディレクトリにある`server.py`スクリプトへの実際のパスに置き換えてください。
+    `args`の`/path/to/mcp-thisweek/server.py`を`mcp-thisweek`ディレクトリにある`server.py`スクリプトへの実際のパスに置き換えてください。また、`command`の`python`は、Python 3.10+インタプリタがシステムのPATHにない場合、フルパスに置き換える必要があるかもしれません。
 
     ```json
     {
       "mcpServers": {
         "mcp-thisweek": {
-          "command": "/path/to/fastmcp",
+          "command": "python",
           "args": [
-            "run",
             "/path/to/mcp-thisweek/server.py"
           ]
         }
@@ -58,7 +57,7 @@ pipとPythonを使用するか、Dockerを使用して`mcp-thisweek`をセット
 
 2.  **Dockerコンテナを実行します:**
     ```bash
-    docker run -d --name mcp-thisweek-container mcp-thisweek
+    docker run -d --rm --name mcp-thisweek-container mcp-thisweek
     ```
     これにより、コンテナがデタッチモードで実行されます。
 

@@ -7,7 +7,7 @@ from fastmcp import FastMCP
 
 # ロガーの設定
 logging.basicConfig(
-    # filename='debug.log',  # Log to a local file, commented out
+    #filename='debug.log',  # Log to a local file, commented out
     #level=logging.DEBUG,
     level=logging.CRITICAL + 1,  # Disable logging by setting level above CRITICAL
     format='%(asctime)s - %(levelname)s - %(message)s'

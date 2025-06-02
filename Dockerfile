@@ -22,4 +22,4 @@ COPY . .
 # ENV NAME World
 
 # Run server.py when the container launches
-CMD ["python", "server.py"]
+CMD ["tail", "-f", "/dev/null"]

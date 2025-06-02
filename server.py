@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import pytz
 from dateutil.relativedelta import relativedelta, MO
 from fastmcp import FastMCP
+from tzlocal import get_localzone
 
 # ロガーの設定
 logging.basicConfig(
@@ -20,8 +21,8 @@ mcp = FastMCP("mcp-thisweek")
 def get_this_week_dates() -> list[str]:
     """今週の月曜日から金曜日までの日付を返す"""
     logging.debug("get_this_week_dates が呼び出されました")
-    jst = pytz.timezone('Asia/Tokyo')
-    today = datetime.now(jst)
+    local_tz = get_localzone()
+    today = datetime.now(local_tz)
     
     # 今週の月曜日を取得
     monday = today + relativedelta(weekday=MO(-1))
@@ -39,8 +40,8 @@ def get_this_week_dates() -> list[str]:
 def get_today_date() -> str:
     """今日の日付を返す"""
     logging.debug("get_today_date が呼び出されました")
-    jst = pytz.timezone('Asia/Tokyo')
-    today = datetime.now(jst)
+    local_tz = get_localzone()
+    today = datetime.now(local_tz)
     result = today.strftime("%m/%d")
     logging.debug(f"今日の日付: {result}")
     return result

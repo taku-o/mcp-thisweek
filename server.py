@@ -7,9 +7,9 @@ from fastmcp import FastMCP
 
 # ロガーの設定
 logging.basicConfig(
-    filename='/Users/taku.omi/Documents/workspaces/mcp-thisweek/debug.log',
+    filename='debug.log',  # Log to a local file
     #level=logging.DEBUG,
-    level=logging.CRITICAL + 1,  # CRITICALより上のレベルを設定することでログ出力を無効化
+    level=logging.CRITICAL + 1,  # Disable logging by setting level above CRITICAL
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
@@ -44,3 +44,9 @@ def get_today_date() -> str:
     result = today.strftime("%m/%d")
     logging.debug(f"今日の日付: {result}")
     return result
+
+if __name__ == "__main__":
+    # Start the server
+    # The following line assumes `mcp` is the FastMCP instance.
+    # Adjust if your server instance has a different name or needs specific startup arguments.
+    mcp.run()

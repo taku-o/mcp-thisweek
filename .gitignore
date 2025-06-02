@@ -20,10 +20,21 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# Virtual Environment
 venv/
 ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.pot
+*.mo
 
 # IDE
 .idea/
@@ -35,5 +46,8 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# program
+# Program specific
 debug.log
+
+# Docker
+Dockerfile.lock

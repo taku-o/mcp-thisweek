@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mcp-thisweek"
-version = "0.1.1"
+version = "0.1.2"
 description = "A simple MCP (Model Context Protocol) that returns the dates from Monday to Friday of this week, and today's date."
 readme = "README.md"
 requires-python = ">=3.12"

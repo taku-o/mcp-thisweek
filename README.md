@@ -49,17 +49,16 @@ You can set up and run `mcp-thisweek` using pip and Python, or using Docker.
 
 ### Using Docker
 
-1.  **Build the Docker image:**
-    Navigate to the root directory of the project (where the `Dockerfile` is located) and run:
-    ```bash
-    docker build -t mcp-thisweek .
-    ```
+Navigate to the root directory of the project (where the `Dockerfile` and `docker-compose.yml` are located) and run:
+```bash
+docker-compose up -d --build
+```
+This will build the image if it doesn't exist and start the container in detached mode.
 
-2.  **Run the Docker container:**
-    ```bash
-    docker run -d --rm --name mcp-thisweek-container mcp-thisweek
-    ```
-    This will run the container in detached mode.
+To stop and remove the container, run:
+```bash
+docker-compose down
+```
 
 3.  **Configure your MCP client (for Docker):**
     When using Docker, `fastmcp` needs to communicate with the server running inside the container. `FastMCP` typically uses local command execution. To make this work with Docker, you might need a wrapper script or adjust how `fastmcp` invokes the server if it needs to `docker exec` into the container or if `fastmcp` itself is run inside a Docker network.

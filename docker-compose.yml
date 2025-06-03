@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  mcp-thisweek:
+    build: .
+    image: mcp-thisweek
+    container_name: mcp-thisweek-container
+    restart: unless-stopped

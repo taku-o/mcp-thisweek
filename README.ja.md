@@ -49,17 +49,16 @@ pipとPythonを使用するか、Dockerを使用して`mcp-thisweek`をセット
 
 ### Dockerを使用する
 
-1.  **Dockerイメージをビルドします:**
-    プロジェクトのルートディレクトリ（`Dockerfile`がある場所）に移動し、以下を実行します:
-    ```bash
-    docker build -t mcp-thisweek .
-    ```
+プロジェクトのルートディレクトリ（`Dockerfile`と`docker-compose.yml`がある場所）に移動し、以下を実行します:
+```bash
+docker-compose up -d --build
+```
+これにより、イメージが存在しない場合はビルドされ、コンテナがデタッチモードで起動します。
 
-2.  **Dockerコンテナを実行します:**
-    ```bash
-    docker run -d --rm --name mcp-thisweek-container mcp-thisweek
-    ```
-    これにより、コンテナがデタッチモードで実行されます。
+コンテナを停止および削除するには、次のコマンドを実行します。
+```bash
+docker-compose down
+```
 
 3.  **MCPクライアントを設定します（Docker用）:**
     Dockerを使用する場合、`fastmcp`はコンテナ内で実行されているサーバーと通信する必要があります。`fastmcp`は通常、ローカルコマンド実行を使用します。これをDockerで機能させるには、ラッパースクリプトが必要になるか、`fastmcp`がコンテナに`docker exec`する必要がある場合や、`fastmcp`自体がDockerネットワーク内で実行される場合に、`fastmcp`がサーバーを呼び出す方法を調整する必要がある場合があります。
